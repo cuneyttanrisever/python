@@ -264,6 +264,7 @@ def kamuflatis(saydir):
     aylar=["Ocak ","Şubat ","Mart ","Nisan ","Mayıs ","Haziran ","Temmuz ","Ağustos ","Eylül ","Ekim ","Kasım ","Aralık"]
     kamuflatifgelirvergisimatrahi=gelir_vergisi_matrahi
     say1=0
+    os.system('cls' if os.name == 'nt' else 'clear')
     global gelir_vergisi_matrahi1
     #os.system('cls' if os.name == 'nt' else 'clear')
     if saydir ==0: 
@@ -275,7 +276,7 @@ def kamuflatis(saydir):
         kmufaylar=[]
         for i in aylar:
             
-            print ("Artan gelir vergisi matrahı =",kamuflatifgelirvergisimatrahi)
+            #print ("Artan gelir vergisi matrahı =",kamuflatifgelirvergisimatrahi)
             if kamuflatifgelirvergisimatrahi < 24000:
                 gelir_vergisi_matrahi1=gelir_vergisi_matrahi*15/100
                 asgari_brut_mesai_maas_hesaplama1(brutlu_maass1,i,saydir,gelir_vergisi_matrahi1)
@@ -285,34 +286,6 @@ def kamuflatis(saydir):
                 #print(kamuflatifgelirvergisimatrahi)
                 #print(kmufaylar[-1])
                 if int(kmufaylar[-1]) < 24000:
-                    ##print("24k dan fazla ")
-                    ##print("Kamuflatif miktar = ",kamuflatifgelirvergisimatrahi)
-                    print ("24k dan yeni degeri cıkartıyoruz")
-                    eski=(kamuflatifgelirvergisimatrahi-kmufaylar[-1])
-                    ##print("eski kalan vergi = ",eski)
-                    yeni_kalan=kamuflatifgelirvergisimatrahi-24000
-                    yenikalan=((yeni_kalan)*20)/100
-                    eskivergi=((eski-yeni_kalan)*15)/100
-                    ##print("yeni kalan vergi = ",yeni_kalan)
-                    gelir_vergisi_matrahi1=eskivergi+yenikalan
-                    ##print("Toplam gelir vergisi matrahı = ",gelir_vergisi_matrahi1)
-                    kmufaylar.append(kamuflatifgelirvergisimatrahi)
-                    asgari_brut_mesai_maas_hesaplama1(brutlu_maass1,i,saydir,gelir_vergisi_matrahi1)
-                    #print (i,"ayı kamuflatif vergi matrahı ",kamuflatifgelirvergisimatrahi)
-                else:
-                    gelir_vergisi_matrahi1=gelir_vergisi_matrahi*20/100
-                    ##print("24k dan fazla ")
-                    ##print("Kamuflatif miktar = ",kamuflatifgelirvergisimatrahi)
-                    #print ("son değer 24k dan %20 cıkartıyoruz")
-                    ##print("Toplam gelir vergisi matrahı = ",gelir_vergisi_matrahi1)
-                    kmufaylar.append(kamuflatifgelirvergisimatrahi)
-                    asgari_brut_mesai_maas_hesaplama1(brutlu_maass1,i,saydir,gelir_vergisi_matrahi1)
-                    #print (i,"ayı kamuflatif vergi matrahı ",kamuflatifgelirvergisimatrahi)
-# --------------------------------------------------------------------------
-            elif kamuflatifgelirvergisimatrahi> 53000 and kamuflatifgelirvergisimatrahi<=190000:
-                #print(kamuflatifgelirvergisimatrahi)
-                #print(kmufaylar[-1])
-                if int(kmufaylar[-1]) < 53000:
                     ##print("24k dan fazla ")
                     ##print("Kamuflatif miktar = ",kamuflatifgelirvergisimatrahi)
                     #print ("24k dan yeni degeri cıkartıyoruz")
@@ -336,6 +309,35 @@ def kamuflatis(saydir):
                     kmufaylar.append(kamuflatifgelirvergisimatrahi)
                     asgari_brut_mesai_maas_hesaplama1(brutlu_maass1,i,saydir,gelir_vergisi_matrahi1)
                     #print (i,"ayı kamuflatif vergi matrahı ",kamuflatifgelirvergisimatrahi)
+
+            elif kamuflatifgelirvergisimatrahi> 53000 and kamuflatifgelirvergisimatrahi<=190000:
+                #print(kamuflatifgelirvergisimatrahi)
+                #print(kmufaylar[-1])
+                if int(kmufaylar[-1]) < 53000:
+                    ##print("24k dan fazla ")
+                    ##print("Kamuflatif miktar = ",kamuflatifgelirvergisimatrahi)
+                    #print ("24k dan yeni degeri cıkartıyoruz")
+                    eski=(kamuflatifgelirvergisimatrahi-kmufaylar[-1])
+                    ##print("eski kalan vergi = ",eski)
+                    yeni_kalan=kamuflatifgelirvergisimatrahi-24000
+                    yenikalan=((yeni_kalan)*20)/100
+                    eskivergi=((eski-yeni_kalan)*15)/100
+                    ##print("yeni kalan vergi = ",yeni_kalan)
+                    gelir_vergisi_matrahi1=eskivergi+yenikalan
+                    ##print("Toplam gelir vergisi matrahı = ",gelir_vergisi_matrahi1)
+                    kmufaylar.append(kamuflatifgelirvergisimatrahi)
+                    asgari_brut_mesai_maas_hesaplama1(brutlu_maass1,i,saydir,gelir_vergisi_matrahi1)
+                    print (i,"ayı kamuflatif vergi matrahı ",kamuflatifgelirvergisimatrahi)
+                else:
+                    gelir_vergisi_matrahi1=gelir_vergisi_matrahi*20/100
+                    ##print("24k dan fazla ")
+                    ##print("Kamuflatif miktar = ",kamuflatifgelirvergisimatrahi)
+                    #print ("son değer 24k dan %20 cıkartıyoruz")
+                    ##print("Toplam gelir vergisi matrahı = ",gelir_vergisi_matrahi1)
+                    kmufaylar.append(kamuflatifgelirvergisimatrahi)
+                    asgari_brut_mesai_maas_hesaplama1(brutlu_maass1,i,saydir,gelir_vergisi_matrahi1)
+                    #print (i,"ayı kamuflatif vergi matrahı ",kamuflatifgelirvergisimatrahi)
+
 # --------------------------------------------------------------------------
             elif kamuflatifgelirvergisimatrahi> 190000 and kamuflatifgelirvergisimatrahi<=650000:
                 #print(kamuflatifgelirvergisimatrahi)
@@ -364,6 +366,8 @@ def kamuflatis(saydir):
                     kmufaylar.append(kamuflatifgelirvergisimatrahi)
                     asgari_brut_mesai_maas_hesaplama1(brutlu_maass1,i,saydir,gelir_vergisi_matrahi1)
                     #print (i,"ayı kamuflatif vergi matrahı ",kamuflatifgelirvergisimatrahi)
+
+
 # --------------------------------------------------------------------------
             elif kamuflatifgelirvergisimatrahi> 650000:
                 #print(kamuflatifgelirvergisimatrahi)
@@ -392,7 +396,8 @@ def kamuflatis(saydir):
                     kmufaylar.append(kamuflatifgelirvergisimatrahi)
                     asgari_brut_mesai_maas_hesaplama1(brutlu_maass1,i,saydir,gelir_vergisi_matrahi1)
                     #print (i,"ayı kamuflatif vergi matrahı ",kamuflatifgelirvergisimatrahi)        
-            
+
+         
             
             
             
