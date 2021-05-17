@@ -1,11 +1,8 @@
 #Coding:Utf-8
 from urlparse import urlparse
-import sys
-import argparse
 import re
 import os
 import sys
-import argparse
 import requests
 os.system('cls' if os.name == 'nt' else 'clear')
 print """
